@@ -1,0 +1,81 @@
+.hero {
+  background-color: var(--light-green);
+  padding: 4rem 0;
+  text-align: center;
+  border-radius: 0 0 50% 50% / 4%;
+  margin-bottom: 4rem;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  color: var(--dark-green);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.heroText {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #555;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: var(--dark-green);
+  font-size: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.categoryCard {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.categoryCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border-color: var(--primary-green);
+}
+
+.categoryIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.categoryTitle {
+  font-size: 1.2rem;
+  color: var(--text-gray);
+  font-weight: 600;
+}
