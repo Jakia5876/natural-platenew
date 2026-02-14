@@ -1,0 +1,179 @@
+.container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.searchSection {
+    text-align: center;
+    margin-bottom: 4rem;
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-family: var(--font-heading);
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+}
+
+.searchBox {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 2rem auto 0;
+}
+
+.input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--font-inter);
+}
+
+.trackingSection {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.orderHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.orderId {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.statusBadge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: var(--light-green);
+    color: var(--dark-green);
+}
+
+/* Timeline Styles */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 4rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #eee;
+    z-index: 1;
+}
+
+.progressLine {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    height: 4px;
+    background: var(--primary-green);
+    z-index: 2;
+    transition: width 0.5s ease;
+}
+
+.step {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    flex: 1;
+}
+
+.dot {
+    width: 34px;
+    height: 34px;
+    background: white;
+    border: 4px solid #eee;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.step.active .dot {
+    border-color: var(--primary-green);
+    background: var(--primary-green);
+    color: white;
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+}
+
+.step.completed .dot {
+    border-color: var(--primary-green);
+    background: var(--primary-green);
+    color: white;
+}
+
+.stepLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #888;
+}
+
+.step.active .stepLabel,
+.step.completed .stepLabel {
+    color: var(--dark-green);
+}
+
+.stepDate {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 600px) {
+    .timeline {
+        flex-direction: column;
+        gap: 2rem;
+        padding-left: 2rem;
+    }
+
+    .timeline::before {
+        left: 17px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        height: auto;
+    }
+
+    .progressLine {
+        left: 17px;
+        top: 0;
+        width: 4px;
+        height: auto;
+    }
+
+    .step {
+        display: flex;
+        text-align: left;
+        gap: 1.5rem;
+    }
+
+    .dot {
+        margin: 0;
+    }
+}

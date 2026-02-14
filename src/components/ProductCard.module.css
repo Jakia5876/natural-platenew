@@ -96,3 +96,69 @@
     margin-left: 0.5rem;
     font-weight: 400;
 }
+
+/* ===== Tablet (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
+    .content {
+        padding: 1.25rem;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .price {
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== Mobile (max-width: 768px) ===== */
+@media (max-width: 768px) {
+    .card:hover {
+        transform: none;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .category {
+        font-size: 0.75rem;
+    }
+
+    .title {
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .rating {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .price {
+        font-size: 1rem;
+    }
+
+    .originalPrice {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== Small Mobile (max-width: 480px) ===== */
+@media (max-width: 480px) {
+    .content {
+        padding: 0.8rem;
+    }
+
+    .bottom {
+        flex-direction: row;
+        align-items: center;
+    }
+}

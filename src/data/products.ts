@@ -115,9 +115,9 @@ export const products: Product[] = [
         rating: 4.7,
         reviews: 15,
         inStock: true,
-        weight: '10 inch',
+        weight: '6 inch',
         isNew: true,
-        description: 'Unique oval-shaped plate. Perfect for serving distinct dishes with style.',
+        description: 'Small square plate for sides and snacks. Elegant and sustainable.',
     },
     {
         id: 'p9',
@@ -187,27 +187,27 @@ export const products: Product[] = [
     {
         id: 'v1',
         name: 'Brown rice ( 1kg)',
-        category: 'Vegetables',
+        category: 'Grains',
         price: 150,
-        originalPrice: 60,
-        image: '🥬',
+        originalPrice: 180,
+        image: '🌾',
         rating: 4.8,
         reviews: 124,
         inStock: true,
         weight: '1kg',
-        description: 'Fresh organic spinach harvested daily. Rich in iron and vitamins. Grown without harmful pesticides.'
+        description: 'High-quality unpolished brown rice. Rich in fiber and highly nutritious.'
     },
     {
         id: 'v2',
         name: 'Fresh Pure Honey (500 grams)',
-        category: 'Vegetables',
+        category: 'Grocery',
         price: 850,
-        image: '🍅',
-        rating: 4.5,
+        image: '🍯',
+        rating: 4.9,
         reviews: 89,
         inStock: true,
-        weight: '1kg',
-        description: 'Juicy, ripe red tomatoes. Perfect for salads, curries, and sauces. Farm fresh quality guaranteed.'
+        weight: '500g',
+        description: '100% natural and pure forest honey. No added sugar or preservatives.'
     },
     {
         id: 'v3',

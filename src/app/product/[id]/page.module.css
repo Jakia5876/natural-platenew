@@ -109,6 +109,7 @@
     display: flex;
     gap: 1rem;
     margin-top: auto;
+    flex-wrap: wrap;
 }
 
 .benefits {
@@ -122,4 +123,88 @@
     gap: 0.5rem;
     margin-bottom: 0.5rem;
     font-weight: 500;
+}
+
+/* ===== Tablet (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 3rem 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .price {
+        font-size: 1.75rem;
+    }
+
+    .grid {
+        gap: 2rem;
+    }
+}
+
+/* ===== Mobile (max-width: 768px) ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .grid {
+        gap: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .price {
+        font-size: 1.5rem;
+    }
+
+    .originalPrice {
+        font-size: 1rem;
+    }
+
+    .description {
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .meta {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .metaItem {
+        font-size: 0.9rem;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions>* {
+        width: 100%;
+    }
+}
+
+/* ===== Small Mobile (max-width: 480px) ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .title {
+        font-size: 1.4rem;
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+
+    .category {
+        font-size: 0.8rem;
+    }
 }

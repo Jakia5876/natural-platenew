@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 import Providers from "./providers";
 import "./globals.css";
 
@@ -24,18 +25,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${inter.variable}`}>
+      <body className={`${inter.variable} ${poppins.variable}`}>
         <Providers>
-          <Header />
-          <main style={{ minHeight: '80vh' }}>
-            {children}
-          </main>
-          <Footer />
+          <div className="app-wrapper">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <BackToTop />
+          </div>
         </Providers>
       </body>
     </html>

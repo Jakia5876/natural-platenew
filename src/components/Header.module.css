@@ -21,6 +21,12 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    z-index: 110;
+}
+
+.logoImg {
+    height: 40px;
+    width: auto;
 }
 
 .menu {
@@ -43,6 +49,7 @@
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    z-index: 110;
 }
 
 .cartBtn {
@@ -68,4 +75,134 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Hamburger Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 110;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background-color: var(--text-gray);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburgerOpen span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+
+.hamburgerOpen span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburgerOpen span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Overlay for mobile menu */
+.overlay {
+    display: none;
+}
+
+/* ===== Tablet (max-width: 1024px) ===== */
+@media (max-width: 1024px) {
+    .menu {
+        gap: 1.2rem;
+    }
+
+    .menuLink {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===== Mobile & Small Tablet (max-width: 768px) ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .navMenu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--white);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        padding: 5rem 2rem 2rem;
+        transition: right 0.3s ease;
+        z-index: 105;
+    }
+
+    .navMenuOpen {
+        right: 0;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .menu li {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .menuLink {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.1rem;
+    }
+
+    .menuLink:hover {
+        padding-left: 0.5rem;
+    }
+
+    .overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 104;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .overlayVisible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+}
+
+/* ===== Small Mobile (max-width: 480px) ===== */
+@media (max-width: 480px) {
+    .header {
+        padding: 0.8rem 0;
+    }
+
+    .logo {
+        font-size: 1.15rem;
+    }
+
+    .cartBtn {
+        font-size: 1.1rem;
+    }
 }

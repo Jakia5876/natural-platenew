@@ -12,7 +12,7 @@ export default function Home() {
           <p className={styles.heroText}>
             Experience the true taste of nature with our 100% organic products delivered straight to your doorstep.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+          <div className={styles.heroButtons}>
             <Link href="/products">
               <Button style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>View Products</Button>
             </Link>
@@ -41,20 +41,24 @@ export default function Home() {
             <h3 className={styles.categoryTitle}>Organic Fruits</h3>
           </Link>
           <Link href="/products?category=grains" className={styles.categoryCard}>
-            <span className={styles.categoryIcon}>🍚</span>
+            <span className={styles.categoryIcon}>🌾</span>
             <h3 className={styles.categoryTitle}>Grains & Pulses</h3>
           </Link>
+          <Link href="/products?category=tableware" className={styles.categoryCard}>
+            <img src="/images/categories/areca-leaf-plate.png" alt="Areca Leaf Plate" className={styles.categoryImage} />
+            <h3 className={styles.categoryTitle}>Areca Leaf Plate</h3>
+          </Link>
           <Link href="/products?category=oil" className={styles.categoryCard}>
-            <span className={styles.categoryIcon}>🫗</span>
+            <span className={styles.categoryIcon}>💧</span>
             <h3 className={styles.categoryTitle}>Natural Oils</h3>
           </Link>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="container" style={{ margin: '4rem auto', textAlign: 'center', padding: '4rem', background: 'var(--light-green)', borderRadius: '16px' }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--dark-green)' }}>Ready to Eat Healthy?</h2>
-        <p style={{ marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
+      <section className={`container ${styles.cta}`}>
+        <h2 className={styles.ctaTitle}>Ready to Eat Healthy?</h2>
+        <p className={styles.ctaText}>
           Join thousands of happy customers who trust Natural Plate for their daily organic needs.
         </p>
         <Link href="/products" className="btn btn-primary">

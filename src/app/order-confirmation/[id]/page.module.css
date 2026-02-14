@@ -1,0 +1,91 @@
+.container {
+    padding: 6rem 1rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.successIcon {
+    width: 80px;
+    height: 80px;
+    background: var(--success-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    color: white;
+    font-size: 3rem;
+}
+
+.title {
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+}
+
+.message {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.infoBox {
+    background: var(--light-green);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.infoTitle {
+    margin-bottom: 1rem;
+    color: var(--dark-green);
+}
+
+.infoList {
+    list-style: none;
+}
+
+.infoItem {
+    margin-bottom: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 600px) {
+    .container {
+        padding: 4rem 1rem;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .message {
+        font-size: 1.1rem;
+    }
+
+    .infoBox {
+        padding: 1.5rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .actions>* {
+        width: 100%;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+}

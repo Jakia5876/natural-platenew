@@ -44,3 +44,18 @@
     cursor: not-allowed;
     pointer-events: none;
 }
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.7rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
