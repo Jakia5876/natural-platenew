@@ -21,7 +21,7 @@ async function migrate() {
         await client.connect();
         console.log('Connected to Supabase database.');
 
-        const migrationPath = path.join(__dirname, '..', 'supabase', 'migrations', '20260221_create_product_reviews.sql');
+        const migrationPath = path.join(__dirname, '..', 'supabase', 'migrations', '20260221_create_orders.sql');
         const sql = fs.readFileSync(migrationPath, 'utf8');
 
         console.log('Running migration...');

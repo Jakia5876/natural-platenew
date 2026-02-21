@@ -1,8 +1,10 @@
-import { products } from '@/data/products';
+import { productService } from '@/lib/productService';
 import ProductCard from '@/components/ProductCard';
 import styles from './page.module.css';
 
-export default function ProductListingPage() {
+export default async function ProductListingPage() {
+    const products = await productService.getAll();
+
     return (
         <div className={styles.container}>
             <div className={styles.layout}>

@@ -1,18 +1,19 @@
-import { products } from '@/data/products';
+import { productService } from '@/lib/productService';
 import Button from '@/components/Button';
 import ProductActions from '@/components/ProductActions';
 import ProductReviews from '@/components/ProductReviews';
 import styles from './page.module.css';
 import { notFound } from 'next/navigation';
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+    const products = await productService.getAll();
     return products.map((product) => ({
         id: product.id,
     }));
 }
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
-    const product = products.find((p) => p.id === params.id);
+export default async function ProductDetailPage({ params }: { params: { id: string } }) {
+    const product = await productService.getById(params.id);
 
     if (!product) {
         notFound();
