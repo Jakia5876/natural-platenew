@@ -56,6 +56,21 @@ export default function AdminDashboard() {
         setLoading(false);
     };
 
+    const handleDeleteProduct = async (id: string) => {
+        if (confirm('Delete this product?')) {
+            const { error } = await supabase.from('products').delete().eq('id', id);
+            if (!error) fetchProducts();
+        }
+    };
+
+    const handleToggleStock = async (id: string, currentStatus: boolean) => {
+        const { error } = await supabase
+            .from('products')
+            .update({ in_stock: !currentStatus })
+            .eq('id', id);
+        if (!error) fetchProducts();
+    };
+
     const handleUpdateOrderStatus = async (id: string, newStatus: string) => {
         const { error } = await supabase.from('orders').update({ status: newStatus }).eq('id', id);
         if (!error) {
@@ -469,13 +484,23 @@ export default function AdminDashboard() {
                                             <td>{product.category}</td>
                                             <td>৳{product.price}</td>
                                             <td>
-                                                <span className={`${styles.badge} ${product.in_stock ? styles.badgeSuccess : styles.badgePending}`}>
+                                                <button
+                                                    onClick={() => handleToggleStock(product.id, product.in_stock)}
+                                                    className={`${styles.badge} ${product.in_stock ? styles.badgeSuccess : styles.badgePending}`}
+                                                    style={{ cursor: 'pointer', border: 'none' }}
+                                                >
                                                     {product.in_stock ? 'In Stock' : 'Out of Stock'}
-                                                </span>
+                                                </button>
                                             </td>
                                             <td style={{ display: 'flex', gap: '0.5rem' }}>
                                                 <button className={styles.actionBtn}>Edit</button>
-                                                <button className={styles.actionBtn} style={{ color: '#e74c3c' }}>Delete</button>
+                                                <button
+                                                    onClick={() => handleDeleteProduct(product.id)}
+                                                    className={styles.actionBtn}
+                                                    style={{ color: '#e74c3c' }}
+                                                >
+                                                    Delete
+                                                </button>
                                             </td>
                                         </tr>
                                     ))}
