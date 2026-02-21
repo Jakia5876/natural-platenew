@@ -38,6 +38,25 @@
     transform: scale(1.05);
 }
 
+.emojiContainer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 50%, #fff8e1 100%);
+}
+
+.emoji {
+    font-size: 4rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.card:hover .emoji {
+    transform: scale(1.15);
+}
+
 .content {
     padding: 1.5rem;
     flex-grow: 1;

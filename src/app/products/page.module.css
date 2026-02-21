@@ -13,7 +13,6 @@
     width: 250px;
     flex-shrink: 0;
     display: none;
-    /* Hidden on mobile by default */
 }
 
 @media (min-width: 768px) {
@@ -32,6 +31,7 @@
     font-size: 1.1rem;
     margin-bottom: 1rem;
     color: var(--dark-green);
+    font-weight: 600;
 }
 
 .filterItem {
@@ -40,6 +40,35 @@
     gap: 0.5rem;
     margin-bottom: 0.5rem;
     cursor: pointer;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.filterItem:hover {
+    color: var(--primary-green);
+}
+
+.filterItem input[type="checkbox"] {
+    accent-color: var(--primary-green);
+    width: 16px;
+    height: 16px;
+}
+
+.clearBtn {
+    background: none;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.clearBtn:hover {
+    background: #e74c3c;
+    color: white;
 }
 
 .main {
@@ -60,11 +89,39 @@
     color: var(--text-gray);
 }
 
+.count {
+    font-size: 1rem;
+    color: #888;
+    font-weight: 400;
+}
+
 .sortSelect {
-    padding: 0.5rem;
+    padding: 0.6rem 1rem;
     border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border-radius: 6px;
     color: var(--text-gray);
+    background: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.sortSelect:focus {
+    outline: none;
+    border-color: var(--primary-green);
+}
+
+.mobileFilters {
+    display: none;
+}
+
+.mobileCategorySelect {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: white;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
 }
 
 .grid {
@@ -77,6 +134,22 @@
     text-align: center;
     padding: 3rem;
     color: #888;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e0e0e0;
+    border-top-color: var(--primary-green);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ===== Tablet (max-width: 1024px) ===== */
@@ -110,11 +183,15 @@
         gap: 1rem;
     }
 
+    .mobileFilters {
+        display: block;
+    }
+
     .header {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.75rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .title {

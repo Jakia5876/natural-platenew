@@ -3,33 +3,43 @@
 import Link from 'next/link';
 import Button from './Button';
 import styles from './ProductCard.module.css';
-import { Product } from '@/data/products';
+import { Product } from '@/lib/productService';
 import { useCart } from '@/context/CartContext';
 
 interface ProductCardProps {
     product: Product;
 }
 
+function isImageUrl(str: string): boolean {
+    return str.startsWith('/') || str.startsWith('http');
+}
+
 export default function ProductCard({ product }: ProductCardProps) {
     const { addToCart } = useCart();
 
     const handleAdd = (e: React.MouseEvent) => {
-        e.preventDefault(); // Prevent navigation to details page
+        e.preventDefault();
         addToCart(product);
     };
+
+    const hasRealImage = isImageUrl(product.image);
 
     return (
         <div className={styles.card}>
             <Link href={`/product/${product.id}`} className={styles.imageContainer}>
-                {/* Using standard img tag for now if next/image config issues arise with local files, 
-            but ideal is Image component. Since we have local files in public, Image works well. */}
-                <div style={{ position: 'absolute', inset: 0 }}>
-                    <img
-                        src={product.image}
-                        alt={product.name}
-                        className={styles.image}
-                    />
-                </div>
+                {hasRealImage ? (
+                    <div style={{ position: 'absolute', inset: 0 }}>
+                        <img
+                            src={product.image}
+                            alt={product.name}
+                            className={styles.image}
+                        />
+                    </div>
+                ) : (
+                    <div className={styles.emojiContainer}>
+                        <span className={styles.emoji}>{product.image}</span>
+                    </div>
+                )}
             </Link>
             <div className={styles.content}>
                 <span className={styles.category}>{product.category}</span>

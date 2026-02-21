@@ -20,26 +20,42 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         notFound();
     }
 
+    const isImageUrl = (str: string) => str.startsWith('/') || str.startsWith('http');
+    const hasRealImage = isImageUrl(product.image);
+
     return (
         <div className={styles.container}>
             <div className={styles.grid}>
                 {/* Gallery Section */}
                 <div className={styles.gallery}>
                     <div className={styles.mainImageContainer}>
-                        <img
-                            src={product.image}
-                            alt={product.name}
-                            className={styles.mainImage}
-                        />
-                    </div>
-                    {/* Thumbnails placeholder */}
-                    <div style={{ display: 'flex', gap: '1rem' }}>
-                        {[1, 2, 3].map((i) => (
-                            <div key={i} style={{ width: '80px', height: '80px', background: '#f0f0f0', borderRadius: '8px', overflow: 'hidden', border: i === 1 ? '2px solid var(--primary-green)' : '1px solid #ddd' }}>
-                                <img src={product.image} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        {hasRealImage ? (
+                            <img
+                                src={product.image}
+                                alt={product.name}
+                                className={styles.mainImage}
+                            />
+                        ) : (
+                            <div style={{
+                                width: '100%', height: '100%', display: 'flex',
+                                alignItems: 'center', justifyContent: 'center',
+                                background: 'linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 50%, #fff8e1 100%)',
+                                borderRadius: '12px', minHeight: '350px'
+                            }}>
+                                <span style={{ fontSize: '8rem' }}>{product.image}</span>
                             </div>
-                        ))}
+                        )}
                     </div>
+                    {/* Thumbnails - only show for products with real images */}
+                    {hasRealImage && (
+                        <div style={{ display: 'flex', gap: '1rem' }}>
+                            {(product.images || [product.image]).slice(0, 3).map((img, i) => (
+                                <div key={i} style={{ width: '80px', height: '80px', background: '#f0f0f0', borderRadius: '8px', overflow: 'hidden', border: i === 0 ? '2px solid var(--primary-green)' : '1px solid #ddd' }}>
+                                    <img src={img} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Details Section */}
@@ -58,9 +74,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     </div>
 
                     <p className={styles.description}>
-                        Eco-friendly and sustainable {product.name}. Perfect for parties, weddings, and daily use.
-                        Made from 100% natural Areca leaves, chemical-free and biodegradable.
-                        Experience the elegance of nature with every meal.
+                        {product.description || `Eco-friendly and sustainable ${product.name}. Perfect for parties, weddings, and daily use.`}
                     </p>
 
                     <div className={styles.meta}>
