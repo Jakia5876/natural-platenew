@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
-import { products } from '@/data/products';
+import { productService, Product } from '@/lib/productService';
 import styles from './page.module.css';
 
 interface Review {
@@ -17,27 +17,32 @@ interface Review {
 
 export default function GlobalReviewsPage() {
     const [reviews, setReviews] = useState<Review[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchAllReviews = async () => {
+        const fetchData = async () => {
             try {
-                const { data, error } = await supabase
-                    .from('product_reviews')
-                    .select('*')
-                    .eq('approved', true)
-                    .order('created_at', { ascending: false });
+                const [reviewsRes, productsRes] = await Promise.all([
+                    supabase
+                        .from('product_reviews')
+                        .select('*')
+                        .eq('approved', true)
+                        .order('created_at', { ascending: false }),
+                    productService.getAll()
+                ]);
 
-                if (error) throw error;
-                setReviews(data || []);
+                if (reviewsRes.error) throw reviewsRes.error;
+                setReviews(reviewsRes.data || []);
+                setProducts(productsRes || []);
             } catch (err) {
-                console.error('Error fetching all reviews:', err);
+                console.error('Error fetching data:', err);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchAllReviews();
+        fetchData();
     }, []);
 
     const getProductName = (productId: string) => {
