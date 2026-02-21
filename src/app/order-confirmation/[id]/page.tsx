@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Button from '@/components/Button';
 import styles from './page.module.css';
 
-export default function OrderConfirmationPage({ params }: { params: { id: string } }) {
+export default async function OrderConfirmationPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
     return (
         <div className={styles.container}>
             <div className={styles.successIcon}>
@@ -11,7 +12,7 @@ export default function OrderConfirmationPage({ params }: { params: { id: string
 
             <h1 className={styles.title}>Order Placed Successfully!</h1>
             <p className={styles.message}>
-                Thank you for shopping with Natural Plate. Your order <strong style={{ color: 'var(--text-gray)' }}>#{params.id}</strong> has been received.
+                Thank you for shopping with Natural Plate. Your order <strong style={{ color: 'var(--text-gray)' }}>#{id}</strong> has been received.
             </p>
 
             <div className={styles.infoBox}>
