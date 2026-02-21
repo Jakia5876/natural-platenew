@@ -1,6 +1,7 @@
 import { products } from '@/data/products';
 import Button from '@/components/Button';
 import ProductActions from '@/components/ProductActions';
+import ProductReviews from '@/components/ProductReviews';
 import styles from './page.module.css';
 import { notFound } from 'next/navigation';
 
@@ -84,6 +85,9 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                     <ProductActions product={product} styles={styles} />
                 </div>
             </div>
+
+            {/* Product Reviews */}
+            <ProductReviews productId={product.id} />
         </div>
     );
 }

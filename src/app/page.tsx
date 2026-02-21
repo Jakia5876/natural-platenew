@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "@/components/Button";
+import DailyFeed from "@/components/DailyFeed";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -27,6 +28,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Daily Feed Section */}
+      <DailyFeed />
 
       {/* Categories Section */}
       <section className="container">
