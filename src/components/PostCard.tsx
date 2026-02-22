@@ -22,10 +22,35 @@ export default function PostCard({ post }: PostCardProps) {
             )}
             {post.media_type === 'video' && post.media_url && (
                 <div className={styles.media}>
-                    <video controls width="100%">
-                        <source src={post.media_url} type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+                    {post.media_url.includes('youtube.com') || post.media_url.includes('youtu.be') ? (
+                        <iframe
+                            width="100%"
+                            height="315"
+                            src={post.media_url.replace('watch?v=', 'embed/')}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    ) : post.media_url.includes('facebook.com') ? (
+                        <div className={styles.fbVideoWrapper}>
+                            <iframe
+                                src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(post.media_url)}&show_text=false&width=500`}
+                                width="100%"
+                                height="314"
+                                style={{ border: 'none', overflow: 'hidden' }}
+                                scrolling="no"
+                                frameBorder="0"
+                                allowFullScreen={true}
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            ></iframe>
+                        </div>
+                    ) : (
+                        <video controls width="100%">
+                            <source src={post.media_url} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    )}
                 </div>
             )}
             <div className={styles.content}>
