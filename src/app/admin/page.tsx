@@ -150,7 +150,7 @@ export default function AdminDashboard() {
                         className={`${styles.navItem} ${activeTab === 'daily-posts' ? styles.navActive : ''}`}
                         onClick={() => setActiveTab('daily-posts')}
                     >
-                        📱 Daily Feed
+                        📱 Blog Posts
                     </div>
                     <div
                         className={`${styles.navItem} ${activeTab === 'orders' ? styles.navActive : ''}`}
@@ -187,7 +187,7 @@ export default function AdminDashboard() {
                 <header className={styles.header}>
                     <h1 className={styles.title}>
                         {activeTab === 'overview' && 'Dashboard Overview'}
-                        {activeTab === 'daily-posts' && 'Daily Feed Management'}
+                        {activeTab === 'daily-posts' && 'Blog Management'}
                         {activeTab === 'reviews' && 'Customer Reviews'}
                         {activeTab === 'orders' && 'Order Management'}
                         {activeTab === 'products' && 'Product Inventory'}

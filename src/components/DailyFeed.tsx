@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import DailyPost from './DailyPost';
 import styles from './DailyFeed.module.css';
@@ -59,8 +60,9 @@ export default function DailyFeed() {
         <section className={styles.feedSection}>
             <div className="container">
                 <div className={styles.header}>
-                    <h2 className="section-title">Daily Feed</h2>
-                    <p className={styles.subtitle}>Check out what's happening at Natural Plate every day!</p>
+                    <h2 className="section-title">আমাদের ব্লগ (Our Blog)</h2>
+                    <p className={styles.subtitle}>নিয়মিত আপডেট এবং গুরুত্বপূর্ণ তথ্য পেতে আমাদের ব্লগ পড়ুন।</p>
+                    <Link href="/blog" className={styles.viewAll}>View All Posts →</Link>
                 </div>
                 <div className={styles.feedGrid}>
                     {posts.map(post => (

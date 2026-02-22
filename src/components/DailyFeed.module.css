@@ -9,9 +9,23 @@
 }
 
 .subtitle {
+    text-align: center;
     color: #666;
     font-size: 1.1rem;
-    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+.viewAll {
+    display: block;
+    text-align: center;
+    color: var(--primary-green);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.viewAll:hover {
+    transform: translateX(5px);
 }
 
 .feedGrid {

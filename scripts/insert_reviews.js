@@ -118,11 +118,32 @@ const reviews = [
 ];
 
 async function insertReviews() {
-    console.log(`Inserting ${reviews.length} Bangla reviews...`);
+    console.log('Cleaning up existing reviews...');
+    const { error: deleteError } = await supabase
+        .from('product_reviews')
+        .delete()
+        .neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all
+
+    if (deleteError) {
+        console.error('Error cleaning up reviews:', deleteError);
+        return;
+    }
+
+    console.log(`Inserting ${reviews.length} Bangla reviews with unique dates...`);
+
+    // Assign unique dates (one day apart, starting from YESTERDAY)
+    const reviewsWithDates = reviews.map((review, index) => {
+        const date = new Date();
+        date.setDate(date.getDate() - (index + 1)); // -1 for yesterday, -2 for day before, etc.
+        return {
+            ...review,
+            created_at: date.toISOString()
+        };
+    });
 
     const { data, error } = await supabase
         .from('product_reviews')
-        .insert(reviews);
+        .insert(reviewsWithDates);
 
     if (error) {
         console.error('Error inserting reviews:', error);

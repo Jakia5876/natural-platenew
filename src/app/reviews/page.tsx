@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import { productService, Product } from '@/lib/productService';
+import { formatDate } from '@/utils/formatDate';
 import styles from './page.module.css';
 
 interface Review {
@@ -82,7 +83,7 @@ export default function GlobalReviewsPage() {
                             <div className={styles.reviewFooter}>
                                 <div className={styles.userInfo}>
                                     <span className={styles.userName}>{review.user_name}</span>
-                                    <span className={styles.date}>{new Date(review.created_at).toLocaleDateString()}</span>
+                                    <span className={styles.date}>{formatDate(review.created_at)}</span>
                                 </div>
 
                                 <Link href={`/product/${review.product_id}`} className={styles.productLink}>

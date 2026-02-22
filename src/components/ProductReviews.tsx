@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
+import { formatDate } from '@/utils/formatDate';
 import styles from './ProductReviews.module.css';
 
 interface Review {
@@ -128,7 +129,7 @@ export default function ProductReviews({ productId }: ProductReviewsProps) {
                             <div className={styles.reviewHeader}>
                                 <span className={styles.userName}>{review.user_name}</span>
                                 <span className={styles.date}>
-                                    {new Date(review.created_at).toLocaleDateString()}
+                                    {formatDate(review.created_at)}
                                 </span>
                             </div>
                             <div className={styles.rating}>

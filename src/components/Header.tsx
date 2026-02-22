@@ -51,6 +51,8 @@ export default function Header() {
                 <nav className={`${styles.navMenu} ${menuOpen ? styles.navMenuOpen : ''}`}>
                     <ul className={styles.menu}>
                         <li><Link href="/" className={styles.menuLink} onClick={() => setMenuOpen(false)}>Home</Link></li>
+                        <li><Link href="/blog" className={styles.menuLink} onClick={() => setMenuOpen(false)}>Blog</Link></li>
+                        <li><Link href="/journal" className={styles.menuLink} onClick={() => setMenuOpen(false)}>Journal</Link></li>
                         <li><Link href="/products" className={styles.menuLink} onClick={() => setMenuOpen(false)}>Products</Link></li>
                         <li><Link href="/about" className={styles.menuLink} onClick={() => setMenuOpen(false)}>About Us</Link></li>
                         <li><Link href="/reviews" className={styles.menuLink} onClick={() => setMenuOpen(false)}>Reviews</Link></li>

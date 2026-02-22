@@ -18,6 +18,7 @@ export default function Footer() {
                         <h3>Quick Links</h3>
                         <ul>
                             <li><Link href="/">Home</Link></li>
+                            <li><Link href="/blog">Blog</Link></li>
                             <li><Link href="/products">Products</Link></li>
                             <li><Link href="/about">About Us</Link></li>
                             <li><Link href="/reviews">Reviews</Link></li>
