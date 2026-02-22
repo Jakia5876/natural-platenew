@@ -58,9 +58,9 @@ export default function AddJournalModal({ onClose, onSuccess }: AddJournalModalP
 
             if (error) throw error;
             onSuccess();
-        } catch (err) {
+        } catch (err: any) {
             console.error('Error creating journal entry:', err);
-            alert('Error creating entry. Please try again.');
+            alert(`Error: ${err.message || 'Unknown error occurred'}`);
         } finally {
             setLoading(false);
         }
