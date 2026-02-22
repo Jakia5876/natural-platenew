@@ -10,7 +10,7 @@ const posts = [
         title: 'প্রাকৃতিক প্লেট ব্যবহার কেন জরুরি?',
         content: 'প্লাস্টিক বর্জ্য আমাদের পরিবেশের জন্য এক ভয়াবহ হুমকি। আমাদের সুপারি পাতার প্লেট বা Areca Leaf Plate সম্পূর্ণ প্রাকৃতিক এবং এটি ব্যবহারের পর অনায়াসেই মাটিতে মিশে যায়। এটি যেমন মজবুত, তেমনি দেখতেও আধুনিক। আজই প্লাস্টিক ছাড়ুন, প্রাকৃতিক পণ্য বেছে নিন।',
         media_type: 'image',
-        media_url: '/images/products/square-plate-10.jpg',
+        media_url: '/why_natural_plates_thumbnail.png',
         published: true,
         created_at: new Date(Date.now() - 86400000).toISOString()
     },
