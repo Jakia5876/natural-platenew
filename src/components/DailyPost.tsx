@@ -44,6 +44,17 @@ export default function DailyPost({ post }: DailyPostProps) {
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
+                            ) : post.media_url.includes('facebook.com') ? (
+                                <iframe
+                                    src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(post.media_url)}&show_text=false&width=500`}
+                                    width="500"
+                                    height="314"
+                                    style={{ border: 'none', overflow: 'hidden' }}
+                                    scrolling="no"
+                                    frameBorder="0"
+                                    allowFullScreen={true}
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                ></iframe>
                             ) : (
                                 <video src={post.media_url} controls className={styles.postVideo}></video>
                             )}
