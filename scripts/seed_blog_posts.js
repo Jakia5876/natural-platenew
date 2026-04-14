@@ -18,7 +18,7 @@ const posts = [
         title: 'কিভাবে তৈরি হয় আমাদের এই প্লেটসমূহ?',
         content: 'সুপারি গাছ থেকে ঝরে পড়া শুকনো খোল সংগ্রহ করে কয়েকটি ধাপে এগুলি ধুয়ে পরিষ্কার করা হয়। এরপর হাই-টেম্পারেচার প্রেসিং মেশিনের সাহায্যে নির্দিষ্ট আকার দেওয়া হয়। এতে কোনো বাড়তি আঠা বা কেমিক্যাল ব্যবহার করা হয় না। এটি ১০০% নিরাপদ। আমাদের ভিডিওতে দেখুন পুরো প্রক্রিয়াটি!',
         media_type: 'video',
-        media_url: 'https://www.facebook.com/share/p/18BPakZiEL/', // Real video link
+        media_url: 'https://www.facebook.com/share/r/1B8qEPdJpF/', // Real video link
         published: true,
         created_at: new Date(Date.now() - 172800000).toISOString()
     },
