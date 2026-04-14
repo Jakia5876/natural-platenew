@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Button from "@/components/Button";
 import DailyFeed from "@/components/DailyFeed";
+import ProductCard from "@/components/ProductCard";
+import { productService } from "@/lib/productService";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default async function Home() {
+  const arecaProducts = await productService.getByCategory("Tableware");
   return (
     <>
       {/* Hero Section */}
@@ -36,6 +39,10 @@ export default function Home() {
       <section className="container">
         <h2 className="section-title">Shop by Category</h2>
         <div className={styles.grid}>
+          <Link href="/products?category=tableware" className={styles.categoryCard}>
+            <img src="/images/categories/areca-leaf-plate.png" alt="Areca Leaf Plate" className={styles.categoryImage} />
+            <h3 className={styles.categoryTitle}>Areca Leaf Plate</h3>
+          </Link>
           <Link href="/products?category=vegetables" className={styles.categoryCard}>
             <span className={styles.categoryIcon}>🥦</span>
             <h3 className={styles.categoryTitle}>Fresh Vegetables</h3>
@@ -48,16 +55,24 @@ export default function Home() {
             <span className={styles.categoryIcon}>🌾</span>
             <h3 className={styles.categoryTitle}>Grains & Pulses</h3>
           </Link>
-          <Link href="/products?category=tableware" className={styles.categoryCard}>
-            <img src="/images/categories/areca-leaf-plate.png" alt="Areca Leaf Plate" className={styles.categoryImage} />
-            <h3 className={styles.categoryTitle}>Areca Leaf Plate</h3>
-          </Link>
           <Link href="/products?category=oil" className={styles.categoryCard}>
             <span className={styles.categoryIcon}>💧</span>
             <h3 className={styles.categoryTitle}>Natural Oils</h3>
           </Link>
         </div>
       </section>
+
+      {/* Areca Leaf Plate Products Section */}
+      {arecaProducts && arecaProducts.length > 0 && (
+        <section className="container" style={{ marginTop: '3rem' }}>
+          <h2 className="section-title">Areca Leaf Plate Products</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '2rem' }}>
+            {arecaProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className={`container ${styles.cta}`}>
