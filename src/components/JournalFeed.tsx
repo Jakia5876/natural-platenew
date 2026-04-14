@@ -22,7 +22,7 @@ export default function JournalFeed() {
         const fetchPosts = async () => {
             try {
                 const { data, error } = await supabase
-                    .from('journal_entries')
+                    .from('daily_posts')
                     .select('*')
                     .eq('published', true)
                     .order('created_at', { ascending: false });

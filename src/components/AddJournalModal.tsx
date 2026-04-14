@@ -47,7 +47,7 @@ export default function AddJournalModal({ onClose, onSuccess }: AddJournalModalP
             }
 
             const { error } = await supabase
-                .from('journal_entries')
+                .from('daily_posts')
                 .insert([{
                     title,
                     content,
